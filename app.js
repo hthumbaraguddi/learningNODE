@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 //lets buidl an app
 
-//middleware
+//middleware but this is a post request
 app.use('/add-product',(req,res,next)=>{
     let formCode=  `<form action="/product" method="POST">
                     Product Name:<input type="text" name="message">
@@ -19,9 +19,13 @@ app.use('/add-product',(req,res,next)=>{
     res.send(formCode);
 })
 
-app.use('/product',(req,res,next)=>{
+///add-product trigger following middleware which is filtered with POST request. If you 
+//trigger localhost:400/product you will get Hello because entering address from the browser
+//is a get request so browser will show "Hello" 
+app.post('/product',(req,res,next)=>{
    
-    res.send(`<h1>Product we received:${req.body.message}, will be added to product catalog soon . . .</h1>`);
+    //res.send(`<h1>Product we received:${req.body.message}, will be added to product catalog soon . . .</h1>`);
+    res.redirect('/');
 })
 
 
