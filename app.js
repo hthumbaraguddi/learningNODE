@@ -1,32 +1,17 @@
 const express = require('express');
 const bodyParser =  require('body-parser');
-//const route = require('./route'); // we will not this module. 
+const adminRoute = require('./routes/admin');
+const shopRoute = require('./routes/shop');
 
 const app = express();
 
+
 app.use(bodyParser.urlencoded({extended : false}));
 
-//app.use(route.GreetingRoute);
-
-//lets buidl an app
-
-//middleware but this is a post request
-app.use('/add-product',(req,res,next)=>{
-    let formCode=  `<form action="/product" method="POST">
-                    Product Name:<input type="text" name="message">
-                    <button type="submit">Submit</button>
-                    </form>`;
-    res.send(formCode);
-})
-
-///add-product trigger following middleware which is filtered with POST request. If you 
-//trigger localhost:400/product you will get Hello because entering address from the browser
-//is a get request so browser will show "Hello" 
-app.post('/product',(req,res,next)=>{
-   
-    //res.send(`<h1>Product we received:${req.body.message}, will be added to product catalog soon . . .</h1>`);
-    res.redirect('/');
-})
+//No effect on order of these but if you use router.use in the admin route or shoproute then you will redirected to '/' router
+//which will give you hello....
+app.use(adminRoute);
+app.use(shopRoute);
 
 
 app.use('/',(req,res,next)=>{
