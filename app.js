@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 //To check above statement, we have modified the route.get to route.use in adminRoute
 
 app.use(shopRoute);
-app.use(adminRoute);
+app.use('/admin',adminRoute);
 
 
 app.use((req,res,next)=>{

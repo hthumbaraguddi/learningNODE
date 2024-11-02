@@ -6,7 +6,7 @@ const router = express.Router();
 
 //router.get('/add-product',(req,res,next)=>{
 router.get('/add-product',(req,res,next)=>{
-    let formCode=  `<form action="/product" method="POST">
+    let formCode=  `<form action="/admin/product" method="POST">
                     Product Name:<input type="text" name="message">
                     <button type="submit">Submit</button>
                     </form>`;
