@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 
+//router.get('/add-product',(req,res,next)=>{
 router.get('/add-product',(req,res,next)=>{
     let formCode=  `<form action="/product" method="POST">
                     Product Name:<input type="text" name="message">
