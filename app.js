@@ -1,9 +1,12 @@
-const http = require('http');
+//const http = require('http');
 const express = require('express');
+const bodyParser =  require('body-parser');
+const route = require('./route');
 
 const app = express();
 
-const route = require('./route')
+app.use(bodyParser.urlencoded({extended : false}));
+
 
 // const server = http.createServer(route.GreetingRoute);
 
